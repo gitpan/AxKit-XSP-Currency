@@ -1,0 +1,11 @@
+# $Id: META.yml 299 2005-03-05 01:15:21Z claco $
+name:         AxKit-XSP-Currency
+version:      0.02
+version_from: lib\AxKit\XSP\Currency.pm
+installdirs:  site
+license:      perl
+requires:
+    AxKit:
+	Locale::Currency::Format:
+distribution_type: module
+generated_by: ExtUtils::MakeMaker version 6.17

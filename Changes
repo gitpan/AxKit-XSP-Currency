@@ -1,0 +1,8 @@
+$Id: Changes 300 2005-03-05 01:17:39Z claco $
+Revision history for Perl module AxKit::XSP::Currency
+
+0.02 Fri Mar 04 20:!6:23 2005
+    - Added missing README entry in MANIFEST
+
+0.01 Fri Mar 04 19:23:13 2005
+    - Initial release
