@@ -1,4 +1,4 @@
-# $Id: Currency.pm 302 2005-03-05 02:51:23Z claco $
+# $Id: Currency.pm 323 2005-03-05 18:19:16Z claco $
 package AxKit::XSP::Currency;
 use strict;
 use warnings;
@@ -6,7 +6,7 @@ use vars qw($VERSION $NS @EXPORT_TAGLIB);
 use base 'Apache::AxKit::Language::XSP::TaglibHelper';
 use Locale::Currency::Format;
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 $NS  = 'http://today.icantfocus.com/CPAN/AxKit/XSP/Currency';
 
 @EXPORT_TAGLIB = (
@@ -34,7 +34,7 @@ AxKit::XSP::Currency - Currency formatting and conversion taglib
 
 =head1 VERSION
 
-    $Id: Currency.pm 302 2005-03-05 02:51:23Z claco $
+    $Id: Currency.pm 323 2005-03-05 18:19:16Z claco $
 
 =head1 SYNOPSIS
 
@@ -84,8 +84,6 @@ the various options in C<Locale::Currency::Format>.
     <currency:format>
         <currency:price>10.9</currency:price>
     </currency:format>  # prints &amp;#x0024;10.50
-
-=head3 Attributes
 
 The C<format> tag has three available attributes to control the output:
 

@@ -1,11 +1,12 @@
-# $Id: META.yml 303 2005-03-05 02:53:11Z claco $
-name:         AxKit-XSP-Currency
-version:      0.03
+--- #YAML:1.0
+name: AxKit-XSP-Currency
+abstract: Currency formatting and conversion taglib
+version: 0.04
 version_from: lib\AxKit\XSP\Currency.pm
-installdirs:  site
-license:      perl
+installdirs: site
+license: perl
 requires:
-    AxKit:
-	Locale::Currency::Format:
+  AxKit: 1.62
+  Locale::Currency::Format: 1.22
 distribution_type: module
 generated_by: ExtUtils::MakeMaker version 6.17
