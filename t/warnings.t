@@ -1,11 +1,11 @@
 #!perl -wT
-# $Id: warnings.t 460 2005-03-21 23:37:57Z claco $
+# $Id: warnings.t 463 2005-03-21 23:49:39Z claco $
 use strict;
-
+use warnings;
 use Test::More;
 use File::Find;
 use File::Basename;
-use warnings;
+
 eval 'use Test::Strict 0.05';
 plan skip_all => 'Test::Strict 0.05 not installed' if $@;
 

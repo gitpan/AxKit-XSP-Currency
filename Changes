@@ -1,5 +1,8 @@
-$Id: Changes 460 2005-03-21 23:37:57Z claco $
+$Id: Changes 466 2005-03-22 00:08:51Z claco $
 Revision history for Perl module AxKit::XSP::Currency
+
+0.12 Mon Mar 21 19:05:12 2005
+    - Fixed small warnings typo in warnings.t :-)
 
 0.11 Mon Mar 21 18:36:53 2005
     - Added Test::Strict warnings tests
