@@ -1,4 +1,4 @@
-# $Id: Currency.pm 323 2005-03-05 18:19:16Z claco $
+# $Id: Currency.pm 327 2005-03-05 20:38:54Z claco $
 package AxKit::XSP::Currency;
 use strict;
 use warnings;
@@ -6,7 +6,7 @@ use vars qw($VERSION $NS @EXPORT_TAGLIB);
 use base 'Apache::AxKit::Language::XSP::TaglibHelper';
 use Locale::Currency::Format;
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 $NS  = 'http://today.icantfocus.com/CPAN/AxKit/XSP/Currency';
 
 @EXPORT_TAGLIB = (
@@ -34,7 +34,7 @@ AxKit::XSP::Currency - Currency formatting and conversion taglib
 
 =head1 VERSION
 
-    $Id: Currency.pm 323 2005-03-05 18:19:16Z claco $
+    $Id: Currency.pm 327 2005-03-05 20:38:54Z claco $
 
 =head1 SYNOPSIS
 

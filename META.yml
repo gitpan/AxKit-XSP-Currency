@@ -1,7 +1,8 @@
 --- #YAML:1.0
 name: AxKit-XSP-Currency
 abstract: Currency formatting and conversion taglib
-version: 0.04
+author: Christopher H. Laco <claco@chrislaco.com>
+version: 0.05
 version_from: lib\AxKit\XSP\Currency.pm
 installdirs: site
 license: perl

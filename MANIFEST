@@ -1,6 +1,7 @@
 Changes
 lib/AxKit/XSP/Currency.pm
 LICENSE
+Makefile.PL
 MANIFEST
 MANIFEST.SKIP
 META.yml
@@ -22,7 +23,7 @@ t/htdocs/axkit/out/format_options.xsp.out
 t/lib/TestHelper.pm
 t/pod_coverage.t
 t/pod_syntax.t
-t/SMOKE
 t/SMOKE.PL
+t/TEST.PL
 t/xsp.t
 Todo
