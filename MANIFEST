@@ -8,11 +8,15 @@ META.yml
 README
 t/basic.t
 t/conf/extra.conf.in
+t/htdocs/axkit/convert.xsp
+t/htdocs/axkit/convert_children_precedence.xsp
+t/htdocs/axkit/convert_mixed.xsp
 t/htdocs/axkit/format.xsp
 t/htdocs/axkit/format_children.xsp
 t/htdocs/axkit/format_children_precedence.xsp
 t/htdocs/axkit/format_code.xsp
 t/htdocs/axkit/format_code_options.xsp
+t/htdocs/axkit/format_convert.xsp
 t/htdocs/axkit/format_options.xsp
 t/htdocs/axkit/out/format.xsp.out
 t/htdocs/axkit/out/format_children.xsp.out

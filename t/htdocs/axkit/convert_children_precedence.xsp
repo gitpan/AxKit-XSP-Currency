@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: convert_children_precedence.xsp 384 2005-03-11 01:04:01Z claco $ -->
+<xsp:page xmlns:xsp="http://apache.org/xsp/core/v1"
+	xmlns:currency="http://today.icantfocus.com/CPAN/AxKit/XSP/Currency"
+>
+	<body>
+		<price>
+			<currency:convert price="0.00" from="AAA" to="QQQ">
+				<currency:price>10.5</currency:price>
+				<currency:from>USD</currency:from>
+				<currency:to>JPY</currency:to>
+			</currency:convert>
+		</price>
+	</body>
+</xsp:page>

@@ -1,4 +1,2 @@
-$Id: Todo 296 2005-03-05 01:08:13Z claco $
+$Id: Todo 391 2005-03-11 01:13:27Z claco $
 TODO list for Perl module AxKit::XSP::Currency
-
-    - Added currency conversion options

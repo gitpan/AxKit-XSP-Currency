@@ -1,5 +1,5 @@
 #!perl -wT
-# $Id: xsp.t 366 2005-03-09 03:37:35Z claco $
+# $Id: xsp.t 384 2005-03-11 01:04:01Z claco $
 use strict;
 use warnings;
 require Test::More;
@@ -10,8 +10,8 @@ eval 'use Apache::Test 1.16';
 Test::More::plan(skip_all =>
     'Apache::Test 1.16 not installed') if $@;
 
-## test new/add first so we can use them to test everything else
-my @tests = (
+## these tests have expected output
+my @outputtests = (
     'format.xsp',
     'format_code.xsp',
     'format_options.xsp',
@@ -26,16 +26,24 @@ my @tests = (
     'symbol_children_precedence.xsp',
 );
 
+## these test have somewhat unpredictable tests
+my @othertests = (
+    'convert.xsp',
+    'convert_children_precedence.xsp',
+    'convert_mixed.xsp',
+    'format_convert.xsp',
+);
+
 require Apache::TestUtil;
 Apache::TestUtil->import(qw(t_debug));
 Apache::TestRequest->import(qw(GET));
-Apache::Test::plan(tests => (scalar @tests * 2),
+Apache::Test::plan(tests => ((scalar @outputtests * 2) + scalar @othertests),
     need('AxKit', 'mod_perl', need_apache(1), need_lwp())
 );
 
 my $docroot = Apache::Test::vars('documentroot');
 
-foreach (@tests) {
+foreach (@outputtests) {
     my $r = GET("/axkit/$_");
 
     ok($r->code == 200);
@@ -48,4 +56,14 @@ foreach (@tests) {
     t_debug("Received:\n", $response);
 
     ok($ok);
+};
+
+foreach (@othertests) {
+    my $r = GET("/axkit/$_");
+
+    t_debug($_);
+    t_debug("HTTP Status: " . $r->code);
+    t_debug("Received:\n", $r->content);
+
+    ok($r->code == 200);
 };

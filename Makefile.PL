@@ -1,4 +1,4 @@
-# $Id: Makefile.PL 296 2005-03-05 01:08:13Z claco $
+# $Id: Makefile.PL 387 2005-03-11 01:05:59Z claco $
 use ExtUtils::MakeMaker;
 use strict;
 use warnings FATAL => 'all';
@@ -25,10 +25,11 @@ WriteMakefile(
     VERSION_FROM    =>  'lib/AxKit/XSP/Currency.pm',
     ABSTRACT        =>  'Currency formatting and conversion taglib',
     ($] >= 5.005 ?
-        (AUTHOR     =>  'Christopher H. Laco (axkit@chrislaco.com)') : ()),
+        (AUTHOR     =>  'Christopher H. Laco <claco@chrislaco.com>') : ()),
     PREREQ_PM       =>  {
-        'AxKit'                     => undef,
-        'Locale::Currency::Format'  => undef
+        'AxKit'                                   => undef,
+        'Locale::Currency::Format'                => undef,
+        'Finance::Currency::Convert::WebserviceX' => undef
     },
     (ExtUtils::MakeMaker->VERSION >= 6.11) ?
     (NO_META      => 1) : (),

@@ -1,5 +1,8 @@
-$Id: Changes 366 2005-03-09 03:37:35Z claco $
+$Id: Changes 391 2005-03-11 01:13:27Z claco $
 Revision history for Perl module AxKit::XSP::Currency
+
+0.08 Thur Mar 10 20:11:43 2005
+    - Added currency conversion via Finance::Currency::Convert::WebserviceX
 
 0.07 Tue Mar 08 22:35:16 2005
     - Fixed xsp.t test error when Apache::Test wasn't installed
