@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: symbol_code.xsp.out 338 2005-03-05 21:52:45Z claco $ -->
+<!-- $Id: symbol_code.xsp.out 451 2005-03-21 00:36:19Z claco $ -->
 <body>
-	<symbol>&amp;#x00A3;</symbol>
+	<symbol>$</symbol>
 </body>

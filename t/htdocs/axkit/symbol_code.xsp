@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: symbol_code.xsp 338 2005-03-05 21:52:45Z claco $ -->
+<!-- $Id: symbol_code.xsp 451 2005-03-21 00:36:19Z claco $ -->
 <xsp:page xmlns:xsp="http://apache.org/xsp/core/v1"
 	xmlns:currency="http://today.icantfocus.com/CPAN/AxKit/XSP/Currency"
 >
 	<body>
 		<symbol>
-			<currency:symbol code="GBP"/>
+			<currency:symbol code="CAD"/>
 		</symbol>
 	</body>
 </xsp:page>

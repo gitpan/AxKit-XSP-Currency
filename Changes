@@ -1,5 +1,9 @@
-$Id: Changes 425 2005-03-15 03:20:14Z claco $
+$Id: Changes 453 2005-03-21 00:37:42Z claco $
 Revision history for Perl module AxKit::XSP::Currency
+
+0.10 Sun Mar 20 19:05:15 2005
+   - Fixed utf symbol output problems under 5.8.x
+   - Changed options defaults to use FMT_SYMBOL/SYM_UTF
 
 0.09 Mon Mar 14 20:39:23 2005
     - Added Test::Strict tests

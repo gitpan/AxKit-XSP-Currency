@@ -1,4 +1,4 @@
-# $Id: Currency.pm 404 2005-03-15 02:02:24Z claco $
+# $Id: Currency.pm 450 2005-03-21 00:35:49Z claco $
 package AxKit::XSP::Currency;
 use strict;
 use warnings;
@@ -7,7 +7,7 @@ use base 'Apache::AxKit::Language::XSP::TaglibHelper';
 use Locale::Currency::Format;
 use Finance::Currency::Convert::WebserviceX;
 
-$VERSION = '0.09';
+$VERSION = '0.10';
 $NS  = 'http://today.icantfocus.com/CPAN/AxKit/XSP/Currency';
 
 @EXPORT_TAGLIB = (
@@ -22,22 +22,22 @@ sub format {
     my ($price, $code, $options) = @_;
 
     $code    ||= 'USD';
-    $options ||= 'FMT_HTML';
+    $options ||= 'FMT_SYMBOL';
 
     eval '$options = ' . $options;
 
-    return currency_format($code, $price, $options);
+    return _to_utf8(currency_format($code, $price, $options));
 };
 
 sub symbol {
     my ($code, $options) = @_;
 
     $code    ||= 'USD';
-    $options ||= 'SYM_HTML';
+    $options ||= 'SYM_UTF';
 
     eval '$options = ' . $options;
 
-    return currency_symbol($code, $options);
+    return _to_utf8(currency_symbol($code, $options));
 };
 
 sub convert {
@@ -46,6 +46,17 @@ sub convert {
     $from ||= 'USD';
 
     return $cc->convert($price, $from, $to);
+};
+
+sub _to_utf8 {
+    my $value = shift;
+
+    if ($] >= 5.008) {
+        require utf8;
+        utf8::upgrade($value);
+    };
+
+    return $value;
 };
 
 1;
@@ -82,11 +93,14 @@ Add the namespace to your XSP file and use the tags:
 
 =head1 DESCRIPTION
 
-This tag library provides an interface to format and convert currency within
-XSP pages.
+This tag library provides an interface to format and convert currency values
+within XSP pages.
 
-This initial version currently only supports currency formatting. Currency
-conversion is planned for future releases.
+=head1 CHANGES
+
+As of version 0.10, the defauls have changed. If no C<option> are specified for
+C<symbol>, the default is now C<SYM_UTF> instead of C<SYM_HTML>. If no
+C<options> are specified for C<format>, C<FMT_SYMBOL> is used instead of C<FMT_HTML>.
 
 =head1 TAG HIERARCHY
 
@@ -137,7 +151,7 @@ The C<code> attribute can also be specified using a child tag instead:
     </currency:format>
 
 C<USD> is used as the default if no currency code is specified.
-See L<Locale::Currency::Format> for all of the available currency codes.
+See C<Locale::Currency::Format> for all of the available currency codes.
 
 =item options
 
@@ -149,8 +163,8 @@ using a child tag instead:
         <currency:options>FMT_STANDARD | FMT_NOZEROS</currency:options>
     </currency:format>
 
-C<FMT_HTML> is used as the default if no options are specified.
-See L<Locale::Currency::Format> for all of the available format options.
+C<FMT_SYMBOL> is used as the default if no options are specified.
+See C<Locale::Currency::Format> for all of the available format options.
 
 =item price
 
@@ -194,7 +208,7 @@ The C<code> attribute can also be specified using a child tag instead:
     </currency:symbol>
 
 C<USD> is used as the default if no currency code is specified.
-See L<Locale::Currency::Format> for all of the available currency codes.
+See C<Locale::Currency::Format> for all of the available currency codes.
 
 =item options
 
@@ -206,14 +220,14 @@ using a child tag instead:
         <currency:options>SYM_HTML|SYM_UTF</currency:options>
     </currency:symbol>
 
-C<SYM_HTML> is used as the default if no options are specified.
-See L<Locale::Currency::Format> for all of the available format options.
+C<SYM_UTF> is used as the default if no options are specified.
+See C<Locale::Currency::Format> for all of the available format options.
 
 =back
 
 =head2 <currency:convert>
 
-Converts a price from one currency to another using L<Finance::Currency::Convert::WebserviceX>.
+Converts a price from one currency to another using C<Finance::Currency::Convert::WebserviceX>.
 
     <currency:convert from="USD|CAD|JPY|..." price="10.95" to="CAD|JPY|...">
         <currency:from></currency:from>
@@ -235,7 +249,7 @@ The C<from> attribute can also be specified using a child tag instead:
     </currency:convert>
 
 C<USD> is used as the default if no currency code is specified.
-See L<Locale::Currency> for all of the available currency codes.
+See C<Locale::Currency> for all of the available currency codes.
 
 =item price
 
@@ -255,13 +269,13 @@ The C<to> attribute can also be specified using a child tag instead:
         <currency:to>USD</currency:to>
     </currency:convert>
 
-See L<Locale::Currency> for all of the available currency codes.
+See C<Locale::Currency> for all of the available currency codes.
 
 =back
 
 =head1 SEE ALSO
 
-L<Locale::Currency::Format>
+L<Locale::Currency::Format>, L<Locale::Currency>
 
 =head1 AUTHOR
 

@@ -26,10 +26,13 @@ SYNOPSIS
 
 DESCRIPTION
     This tag library provides an interface to format and convert currency
-    within XSP pages.
+    values within XSP pages.
 
-    This initial version currently only supports currency formatting.
-    Currency conversion is planned for future releases.
+CHANGES
+    As of version 0.10, the defauls have changed. If no "option" are
+    specified for "symbol", the default is now "SYM_UTF" instead of
+    "SYM_HTML". If no "options" are specified for "format", "FMT_SYMBOL" is
+    used instead of "FMT_HTML".
 
 TAG HIERARCHY
         <currency:format code="USD|CAD|..." options="FMT_STANDARD|FMT_COMMON|..." price="10.95">
@@ -75,7 +78,7 @@ TAG REFERENCE
             </currency:format>
 
         "USD" is used as the default if no currency code is specified. See
-        Locale::Currency::Format for all of the available currency codes.
+        "Locale::Currency::Format" for all of the available currency codes.
 
     options
         This is a string containing the formatting options to be used to
@@ -86,8 +89,8 @@ TAG REFERENCE
                 <currency:options>FMT_STANDARD | FMT_NOZEROS</currency:options>
             </currency:format>
 
-        "FMT_HTML" is used as the default if no options are specified. See
-        Locale::Currency::Format for all of the available format options.
+        "FMT_SYMBOL" is used as the default if no options are specified. See
+        "Locale::Currency::Format" for all of the available format options.
 
     price
         This is the price to be formatted. While it can be passed as an
@@ -125,7 +128,7 @@ TAG REFERENCE
             </currency:symbol>
 
         "USD" is used as the default if no currency code is specified. See
-        Locale::Currency::Format for all of the available currency codes.
+        "Locale::Currency::Format" for all of the available currency codes.
 
     options
         This is a string containing the formatting options to be used to
@@ -136,12 +139,12 @@ TAG REFERENCE
                 <currency:options>SYM_HTML|SYM_UTF</currency:options>
             </currency:symbol>
 
-        "SYM_HTML" is used as the default if no options are specified. See
-        Locale::Currency::Format for all of the available format options.
+        "SYM_UTF" is used as the default if no options are specified. See
+        "Locale::Currency::Format" for all of the available format options.
 
   <currency:convert>
     Converts a price from one currency to another using
-    Finance::Currency::Convert::WebserviceX.
+    "Finance::Currency::Convert::WebserviceX".
 
         <currency:convert from="USD|CAD|JPY|..." price="10.95" to="CAD|JPY|...">
             <currency:from></currency:from>
@@ -161,7 +164,7 @@ TAG REFERENCE
             </currency:convert>
 
         "USD" is used as the default if no currency code is specified. See
-        Locale::Currency for all of the available currency codes.
+        "Locale::Currency" for all of the available currency codes.
 
     price
         This is the price to be formatted. While it can be passed as an
@@ -179,10 +182,10 @@ TAG REFERENCE
                 <currency:to>USD</currency:to>
             </currency:convert>
 
-        See Locale::Currency for all of the available currency codes.
+        See "Locale::Currency" for all of the available currency codes.
 
 SEE ALSO
-    Locale::Currency::Format
+    Locale::Currency::Format, Locale::Currency
 
 AUTHOR
         Christopher H. Laco
