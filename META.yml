@@ -2,7 +2,7 @@
 name: AxKit-XSP-Currency
 abstract: Currency formatting and conversion taglib
 author: Christopher H. Laco <claco@chrislaco.com>
-version: 0.05
+version: 0.06
 version_from: lib\AxKit\XSP\Currency.pm
 installdirs: site
 license: perl

@@ -1,4 +1,4 @@
-# $Id: Currency.pm 327 2005-03-05 20:38:54Z claco $
+# $Id: Currency.pm 339 2005-03-05 21:53:47Z claco $
 package AxKit::XSP::Currency;
 use strict;
 use warnings;
@@ -6,11 +6,12 @@ use vars qw($VERSION $NS @EXPORT_TAGLIB);
 use base 'Apache::AxKit::Language::XSP::TaglibHelper';
 use Locale::Currency::Format;
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 $NS  = 'http://today.icantfocus.com/CPAN/AxKit/XSP/Currency';
 
 @EXPORT_TAGLIB = (
-    'format($price;$code,$options)'
+    'format($price;$code,$options)',
+    'symbol(;$code,$options)'
 );
 
 sub format {
@@ -24,6 +25,17 @@ sub format {
     return currency_format($code, $price, $options);
 };
 
+sub symbol {
+    my ($code, $options) = @_;
+
+    $code    ||= 'USD';
+    $options ||= 'SYM_HTML';
+
+    eval '$options = ' . $options;
+
+    return currency_symbol($code, $options);
+};
+
 1;
 __END__
 
@@ -31,10 +43,6 @@ __END__
 =head1 NAME
 
 AxKit::XSP::Currency - Currency formatting and conversion taglib
-
-=head1 VERSION
-
-    $Id: Currency.pm 327 2005-03-05 20:38:54Z claco $
 
 =head1 SYNOPSIS
 
@@ -58,6 +66,8 @@ Add the namespace to your XSP file and use the tags:
         <currency:price>10.95</currenct:price>
     </currency:format>
 
+    <price><currency:symbol/>10.92</price>
+
 =head1 DESCRIPTION
 
 This tag library provides an interface to format and convert currency within
@@ -73,6 +83,10 @@ conversion is planned for future releases.
         <currency:options></currency:options>
         <currency:price></currency:price>
     </currency:format>
+    <currency:symbol code="USD|CAD|..." options="SYM_HTML|SYM_UTF">
+        <currency:code></currency:code>
+        <currency:options></currency:options>
+    </currency:symbol>
 
 =head1 TAG REFERENCE
 
@@ -122,6 +136,43 @@ the more common usage will be as a child tag:
     <currency:format>
         <currency:price>19.95</currency:price>
     </currency:format>
+
+=back
+
+=head2 <currency:symbol>
+
+Returns the monetary symbol for the specified currency code.
+
+    <currency:symbol code="USD"/>   # prints $
+
+The C<symbol> tag has two available attributes to control the output:
+
+=over
+
+=item code
+
+This is the 3 letter currency code used to specify the currency in use.
+The C<code> attribute can also be specified using a child tag instead:
+
+    <currency:symbol>
+        <currency:code>USD</currency:code>
+    </currency:symbol>
+
+C<USD> is used as the default if no currency code is specified.
+See L<Locale::Currency::Format> for all of the available currency codes.
+
+=item options
+
+This is a string containing the formatting options to be used to specify
+the desired output format. The C<options> attribute can also be specified
+using a child tag instead:
+
+    <currency:symbol code="USD">
+        <currency:options>SYM_HTML|SYM_UTF</currency:options>
+    </currency:symbol>
+
+C<SYM_HTML> is used as the default if no options are specified.
+See L<Locale::Currency::Format> for all of the available format options.
 
 =back
 

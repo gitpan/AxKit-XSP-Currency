@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: symbol.xsp 338 2005-03-05 21:52:45Z claco $ -->
+<xsp:page xmlns:xsp="http://apache.org/xsp/core/v1"
+	xmlns:currency="http://today.icantfocus.com/CPAN/AxKit/XSP/Currency"
+>
+	<body>
+		<symbol>
+			<currency:symbol/>
+		</symbol>
+	</body>
+</xsp:page>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: symbol_children_precedence.xsp 338 2005-03-05 21:52:45Z claco $ -->
+<xsp:page xmlns:xsp="http://apache.org/xsp/core/v1"
+	xmlns:currency="http://today.icantfocus.com/CPAN/AxKit/XSP/Currency"
+>
+	<body>
+		<symbol>
+			<currency:symbol code="LRD" options="SYM_HTML">
+				<currency:code>LRD</currency:code>
+				<currency:options>SYM_UTF</currency:options>
+			</currency:symbol>
+		</symbol>
+	</body>
+</xsp:page>

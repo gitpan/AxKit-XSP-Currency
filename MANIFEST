@@ -2,7 +2,7 @@ Changes
 lib/AxKit/XSP/Currency.pm
 LICENSE
 Makefile.PL
-MANIFEST
+MANIFEST			This list of files
 MANIFEST.SKIP
 META.yml
 README
@@ -20,6 +20,18 @@ t/htdocs/axkit/out/format_children_precedence.xsp.out
 t/htdocs/axkit/out/format_code.xsp.out
 t/htdocs/axkit/out/format_code_options.xsp.out
 t/htdocs/axkit/out/format_options.xsp.out
+t/htdocs/axkit/out/symbol.xsp.out
+t/htdocs/axkit/out/symbol_children.xsp.out
+t/htdocs/axkit/out/symbol_children_precedence.xsp.out
+t/htdocs/axkit/out/symbol_code.xsp.out
+t/htdocs/axkit/out/symbol_code_options.xsp.out
+t/htdocs/axkit/out/symbol_options.xsp.out
+t/htdocs/axkit/symbol.xsp
+t/htdocs/axkit/symbol_children.xsp
+t/htdocs/axkit/symbol_children_precedence.xsp
+t/htdocs/axkit/symbol_code.xsp
+t/htdocs/axkit/symbol_code_options.xsp
+t/htdocs/axkit/symbol_options.xsp
 t/lib/TestHelper.pm
 t/pod_coverage.t
 t/pod_syntax.t

@@ -1,5 +1,5 @@
 #!perl -wT
-# $Id: xsp.t 296 2005-03-05 01:08:13Z claco $
+# $Id: xsp.t 340 2005-03-05 22:01:14Z claco $
 use strict;
 use warnings;
 require Test::More;
@@ -18,6 +18,12 @@ my @tests = (
     'format_code_options.xsp',
     'format_children.xsp',
     'format_children_precedence.xsp',
+    'symbol.xsp',
+    'symbol_code.xsp',
+    'symbol_options.xsp',
+    'symbol_code_options.xsp',
+    'symbol_children.xsp',
+    'symbol_children_precedence.xsp',
 );
 
 use Apache::TestUtil;

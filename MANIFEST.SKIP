@@ -1,4 +1,4 @@
-# $Id: MANIFEST.SKIP 332 2005-03-05 20:46:59Z claco $
+# $Id: MANIFEST.SKIP 346 2005-03-05 22:08:22Z claco $
 \bRCS\b
 \bCVS\b
 ,v$
@@ -7,6 +7,7 @@
 ^pm_to_blib
 ^MakeMaker-\d
 Makefile.old
+Makefile$
 \.db
-t/TEST
-t/SMOKE
+t/TEST$
+t/SMOKE$
