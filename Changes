@@ -1,5 +1,9 @@
-$Id: Changes 391 2005-03-11 01:13:27Z claco $
+$Id: Changes 425 2005-03-15 03:20:14Z claco $
 Revision history for Perl module AxKit::XSP::Currency
+
+0.09 Mon Mar 14 20:39:23 2005
+    - Added Test::Strict tests
+    - Added Finance-Currency-Convert-WebserviceX requirement to META.yml
 
 0.08 Thur Mar 10 20:11:43 2005
     - Added currency conversion via Finance::Currency::Convert::WebserviceX

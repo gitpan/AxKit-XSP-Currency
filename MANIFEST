@@ -39,6 +39,7 @@ t/htdocs/axkit/symbol_options.xsp
 t/lib/TestHelper.pm
 t/pod_coverage.t
 t/pod_syntax.t
+t/strict.t
 t/SMOKE.PL
 t/TEST.PL
 t/xsp.t
