@@ -1,5 +1,9 @@
-$Id: Changes 453 2005-03-21 00:37:42Z claco $
+$Id: Changes 460 2005-03-21 23:37:57Z claco $
 Revision history for Perl module AxKit::XSP::Currency
+
+0.11 Mon Mar 21 18:36:53 2005
+    - Added Test::Strict warnings tests
+    - Added currency code verification using Locale::Currency
 
 0.10 Sun Mar 20 19:05:15 2005
    - Fixed utf symbol output problems under 5.8.x

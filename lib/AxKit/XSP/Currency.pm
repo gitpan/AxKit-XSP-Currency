@@ -1,4 +1,4 @@
-# $Id: Currency.pm 450 2005-03-21 00:35:49Z claco $
+# $Id: Currency.pm 458 2005-03-21 02:34:08Z claco $
 package AxKit::XSP::Currency;
 use strict;
 use warnings;
@@ -7,7 +7,7 @@ use base 'Apache::AxKit::Language::XSP::TaglibHelper';
 use Locale::Currency::Format;
 use Finance::Currency::Convert::WebserviceX;
 
-$VERSION = '0.10';
+$VERSION = '0.11';
 $NS  = 'http://today.icantfocus.com/CPAN/AxKit/XSP/Currency';
 
 @EXPORT_TAGLIB = (
@@ -17,6 +17,7 @@ $NS  = 'http://today.icantfocus.com/CPAN/AxKit/XSP/Currency';
 );
 
 my $cc = Finance::Currency::Convert::WebserviceX->new();
+my %codes;
 
 sub format {
     my ($price, $code, $options) = @_;
@@ -25,6 +26,8 @@ sub format {
     $options ||= 'FMT_SYMBOL';
 
     eval '$options = ' . $options;
+
+    die "Currency code $code is invalid or unknown" unless _valid_code($code);
 
     return _to_utf8(currency_format($code, $price, $options));
 };
@@ -37,6 +40,8 @@ sub symbol {
 
     eval '$options = ' . $options;
 
+    die "Currency code $code is invalid or unknown" unless _valid_code($code);
+
     return _to_utf8(currency_symbol($code, $options));
 };
 
@@ -44,6 +49,9 @@ sub convert {
     my ($price, $from, $to) = @_;
 
     $from ||= 'USD';
+
+    die "Currency code $from/$to is invalid or unknown"  unless
+        _valid_code($from) && _valid_code($to);
 
     return $cc->convert($price, $from, $to);
 };
@@ -57,6 +65,20 @@ sub _to_utf8 {
     };
 
     return $value;
+};
+
+sub _valid_code {
+    my $code = uc(shift);
+
+    eval 'use Locale::Currency';
+    if (!$@) {
+        if (! keys %codes) {
+            %codes = map {uc($_) => uc($_)} all_currency_codes();
+        };
+        return exists $codes{$code};
+    }
+
+    return $code =~ /^[A-Z]{3}$/;
 };
 
 1;
@@ -98,7 +120,7 @@ within XSP pages.
 
 =head1 CHANGES
 
-As of version 0.10, the defauls have changed. If no C<option> are specified for
+As of version C<0.10>, the B<defaults have changed>. If no C<options> are specified for
 C<symbol>, the default is now C<SYM_UTF> instead of C<SYM_HTML>. If no
 C<options> are specified for C<format>, C<FMT_SYMBOL> is used instead of C<FMT_HTML>.
 
@@ -151,7 +173,14 @@ The C<code> attribute can also be specified using a child tag instead:
     </currency:format>
 
 C<USD> is used as the default if no currency code is specified.
-See C<Locale::Currency::Format> for all of the available currency codes.
+See C<Locale::Currency::Format> and C<Locale::Currencty> for all of the
+available currency codes.
+
+If C<Locale::Currency> is installed, it will verify the 3 letter code is actually
+a valid currency code and die if it is not, otherwise it simply checks that
+the code conforms to:
+
+    /^[A-Z]{3}$/
 
 =item options
 
@@ -210,6 +239,12 @@ The C<code> attribute can also be specified using a child tag instead:
 C<USD> is used as the default if no currency code is specified.
 See C<Locale::Currency::Format> for all of the available currency codes.
 
+If C<Locale::Currency> is installed, it will verify the 3 letter code is actually
+a valid currency code and die if it is not, otherwise it simply checks that
+the code conforms to:
+
+    /^[A-Z]{3}$/
+
 =item options
 
 This is a string containing the formatting options to be used to specify
@@ -249,6 +284,13 @@ The C<from> attribute can also be specified using a child tag instead:
     </currency:convert>
 
 C<USD> is used as the default if no currency code is specified.
+
+If C<Locale::Currency> is installed, it will verify the 3 letter code is actually
+a valid currency code and die if it is not, otherwise it simply checks that
+the code conforms to:
+
+    /^[A-Z]{3}$/
+
 See C<Locale::Currency> for all of the available currency codes.
 
 =item price
@@ -268,6 +310,12 @@ The C<to> attribute can also be specified using a child tag instead:
     <currency:convert>
         <currency:to>USD</currency:to>
     </currency:convert>
+
+If C<Locale::Currency> is installed, it will verify the 3 letter code is actually
+a valid currency code and die if it is not, otherwise it simply checks that
+the code conforms to:
+
+    /^[A-Z]{3}$/
 
 See C<Locale::Currency> for all of the available currency codes.
 

@@ -42,5 +42,6 @@ t/pod_syntax.t
 t/strict.t
 t/SMOKE.PL
 t/TEST.PL
+t/warnings.t
 t/xsp.t
 Todo
