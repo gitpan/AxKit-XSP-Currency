@@ -1,5 +1,5 @@
 #!perl -wT
-# $Id: xsp.t 340 2005-03-05 22:01:14Z claco $
+# $Id: xsp.t 366 2005-03-09 03:37:35Z claco $
 use strict;
 use warnings;
 require Test::More;
@@ -26,7 +26,8 @@ my @tests = (
     'symbol_children_precedence.xsp',
 );
 
-use Apache::TestUtil;
+require Apache::TestUtil;
+Apache::TestUtil->import(qw(t_debug));
 Apache::TestRequest->import(qw(GET));
 Apache::Test::plan(tests => (scalar @tests * 2),
     need('AxKit', 'mod_perl', need_apache(1), need_lwp())
