@@ -1,4 +1,4 @@
-# $Id: Currency.pm 299 2005-03-05 01:15:21Z claco $
+# $Id: Currency.pm 302 2005-03-05 02:51:23Z claco $
 package AxKit::XSP::Currency;
 use strict;
 use warnings;
@@ -6,7 +6,7 @@ use vars qw($VERSION $NS @EXPORT_TAGLIB);
 use base 'Apache::AxKit::Language::XSP::TaglibHelper';
 use Locale::Currency::Format;
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 $NS  = 'http://today.icantfocus.com/CPAN/AxKit/XSP/Currency';
 
 @EXPORT_TAGLIB = (
@@ -34,7 +34,7 @@ AxKit::XSP::Currency - Currency formatting and conversion taglib
 
 =head1 VERSION
 
-    $Id: Currency.pm 299 2005-03-05 01:15:21Z claco $
+    $Id: Currency.pm 302 2005-03-05 02:51:23Z claco $
 
 =head1 SYNOPSIS
 
@@ -71,6 +71,7 @@ conversion is planned for future releases.
     <currency:format code="USD|CAD|..." options="FMT_STANDARD|FMT_COMMON|...">
         <currency:code></currency:code>
         <currency:options></currency:options>
+        <currency:price></currency:price>
     </currency:format>
 
 =head1 TAG REFERENCE
@@ -80,11 +81,13 @@ conversion is planned for future releases.
 Given a price, usually in decimal form, format returns a formatted price using
 the various options in C<Locale::Currency::Format>.
 
-    <currency:format>10.9</currency:format>  # prints &amp;#x0024;10.50
+    <currency:format>
+        <currency:price>10.9</currency:price>
+    </currency:format>  # prints &amp;#x0024;10.50
 
 =head3 Attributes
 
-The C<format> tag has two available attributes to control the output:
+The C<format> tag has three available attributes to control the output:
 
 =over
 
@@ -112,6 +115,15 @@ using a child tag instead:
 
 C<FMT_HTML> is used as the default if no options are specified.
 See L<Locale::Currency::Format> for all of the available format options.
+
+=item price
+
+This is the price to be formatted. While it can be passed as an attribute,
+the more common usage will be as a child tag:
+
+    <currency:format>
+        <currency:price>19.95</currency:price>
+    </currency:format>
 
 =back
 

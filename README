@@ -2,7 +2,7 @@ NAME
     AxKit::XSP::Currency - Currency formatting and conversion taglib
 
 VERSION
-        $Id: Currency.pm 296 2005-03-05 01:08:13Z claco $
+        $Id: Currency.pm 302 2005-03-05 02:51:23Z claco $
 
 SYNOPSIS
     Add this taglib to AxKit in your http.conf or .htaccess:
@@ -36,6 +36,7 @@ TAG HIERARCHY
         <currency:format code="USD|CAD|..." options="FMT_STANDARD|FMT_COMMON|...">
             <currency:code></currency:code>
             <currency:options></currency:options>
+            <currency:price></currency:price>
         </currency:format>
 
 TAG REFERENCE
@@ -43,10 +44,12 @@ TAG REFERENCE
     Given a price, usually in decimal form, format returns a formatted price
     using the various options in "Locale::Currency::Format".
 
-        <currency:format>10.9</currency:format>  # prints &amp;#x0024;10.50
+        <currency:format>
+            <currency:price>10.9</currency:price>
+        </currency:format>  # prints &amp;#x0024;10.50
 
    Attributes
-    The "format" tag has two available attributes to control the output:
+    The "format" tag has three available attributes to control the output:
 
     code
         This is the 3 letter currency code used to specify the currency in
@@ -71,6 +74,14 @@ TAG REFERENCE
 
         "FMT_HTML" is used as the default if no options are specified. See
         Locale::Currency::Format for all of the available format options.
+
+    price
+        This is the price to be formatted. While it can be passed as an
+        attribute, the more common usage will be as a child tag:
+
+            <currency:format>
+                <currency:price>19.95</currency:price>
+            </currency:format>
 
 SEE ALSO
     Locale::Currency::Format
