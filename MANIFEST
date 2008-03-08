@@ -1,4 +1,15 @@
 Changes
+inc/Module/AutoInstall.pm
+inc/Module/Install.pm
+inc/Module/Install/AutoInstall.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/Fetch.pm
+inc/Module/Install/Include.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/WriteAll.pm
 lib/AxKit/XSP/Currency.pm
 LICENSE
 Makefile.PL
@@ -39,8 +50,8 @@ t/htdocs/axkit/symbol_options.xsp
 t/lib/TestHelper.pm
 t/pod_coverage.t
 t/pod_syntax.t
-t/strict.t
 t/SMOKE.PL
+t/strict.t
 t/TEST.PL
 t/warnings.t
 t/xsp.t

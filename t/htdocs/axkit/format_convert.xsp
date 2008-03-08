@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: format_convert.xsp 384 2005-03-11 01:04:01Z claco $ -->
+<!-- $Id: /local/CPAN/AxKit-XSP-Currency/t/htdocs/axkit/format_convert.xsp 1456 2005-03-11T01:04:01.341817Z claco  $ -->
 <xsp:page xmlns:xsp="http://apache.org/xsp/core/v1"
 	xmlns:currency="http://today.icantfocus.com/CPAN/AxKit/XSP/Currency"
 >

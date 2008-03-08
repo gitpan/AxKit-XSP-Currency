@@ -1,20 +1,23 @@
---- #YAML:1.0
-name: AxKit-XSP-Currency
+--- 
 abstract: Currency formatting and conversion taglib
-author: Christopher H. Laco <claco@chrislaco.com>
-version: 0.12
-version_from: lib\AxKit\XSP\Currency.pm
-installdirs: site
-license: perl
-requires:
-  AxKit: 1.62
-  Locale::Currency::Format: 1.22
-  Finance-Currency-Convert-WebserviceX: 0.03
-recommends:
-  Locale::Currency: 2.07
-  Pod::Coverage: 0.14
-  Test::Pod: 1.00
-  Test::Pod::Coverage: 1.04
-  Test:Strict: 0.05
+author: 
+  - Christopher H. Laco
 distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+generated_by: Module::Install version 0.68
+license: artistic
+meta-spec: 
+  url: http://module-build.sourceforge.net/META-spec-v1.3.html
+  version: 1.3
+name: AxKit-XSP-Currency
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
+  AxKit: 1.62
+  Finance::Currency::Convert::WebserviceX: 0
+  Locale::Currency::Format: 0
+  mod_perl: 0
+  perl: 5.8.0
+tests: t/*.t
+version: 0.13000

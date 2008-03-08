@@ -1,5 +1,5 @@
 #!perl -wT
-# $Id: pod_coverage.t 385 2005-03-11 01:04:35Z claco $
+# $Id: /local/CPAN/AxKit-XSP-Currency/t/pod_coverage.t 1457 2005-03-11T01:04:35.984286Z claco  $
 use strict;
 use warnings;
 use Test::More;

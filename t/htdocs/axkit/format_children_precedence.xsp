@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: format_children_precedence.xsp 296 2005-03-05 01:08:13Z claco $ -->
+<!-- $Id: /local/CPAN/AxKit-XSP-Currency/t/htdocs/axkit/format_children_precedence.xsp 1434 2005-03-05T01:08:13.559154Z claco  $ -->
 <xsp:page xmlns:xsp="http://apache.org/xsp/core/v1"
 	xmlns:currency="http://today.icantfocus.com/CPAN/AxKit/XSP/Currency"
 >

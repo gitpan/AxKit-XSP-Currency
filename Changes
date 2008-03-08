@@ -1,5 +1,8 @@
-$Id: Changes 466 2005-03-22 00:08:51Z claco $
+$Id: /local/CPAN/AxKit-XSP-Currency/Changes 1486 2008-03-08T22:00:13.791163Z claco  $
 Revision history for Perl module AxKit::XSP::Currency
+
+0.13000 Sat Mar 8 16:58:29 2008
+    - Converted to Module::Install
 
 0.12 Mon Mar 21 19:05:12 2005
     - Fixed small warnings typo in warnings.t :-)

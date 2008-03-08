@@ -1,5 +1,5 @@
 #!perl -wT
-# $Id: warnings.t 463 2005-03-21 23:49:39Z claco $
+# $Id: /local/CPAN/AxKit-XSP-Currency/t/warnings.t 1483 2005-03-21T23:49:39.022120Z claco  $
 use strict;
 use warnings;
 use Test::More;

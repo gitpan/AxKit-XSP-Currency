@@ -1,7 +1,24 @@
-# $Id: Makefile.PL 452 2005-03-21 00:37:35Z claco $
-use ExtUtils::MakeMaker;
+# $Id: /local/CPAN/AxKit-XSP-Currency/Makefile.PL 1486 2008-03-08T22:00:13.791163Z claco  $
 use strict;
-use warnings FATAL => 'all';
+use warnings;
+use inc::Module::Install 0.65;
+
+name 'AxKit-XSP-Currency';
+license 'artistic';
+perl_version '5.008000';
+all_from 'lib/AxKit/XSP/Currency.pm';
+
+requires 'AxKit'                 => 1.62;
+requires 'mod_perl';
+requires 'Locale::Currency::Format';
+requires 'Finance::Currency::Convert::WebserviceX';
+
+tests 't/*.t';
+clean_files 'smoke-report-* t/TEST t/SMOKE t/logs';
+
+eval {
+    system 'pod2text lib/AxKit/XSP/Currency.pm > README';
+};
 
 eval 'use Apache::Test 1.16';
 if (!$@) {
@@ -20,22 +37,5 @@ if (!$@) {
     Apache::TestMM::generate_script('t/SMOKE');
 };
 
-WriteMakefile(
-    NAME            =>  'AxKit::XSP::Currency',
-    VERSION_FROM    =>  'lib/AxKit/XSP/Currency.pm',
-    ABSTRACT        =>  'Currency formatting and conversion taglib',
-    ($] >= 5.005 ?
-        (AUTHOR     =>  'Christopher H. Laco <claco@chrislaco.com>') : ()),
-    PREREQ_PM       =>  {
-        'AxKit'                                   => undef,
-        'Locale::Currency::Format'                => undef,
-        'Finance::Currency::Convert::WebserviceX' => undef
-    },
-    (ExtUtils::MakeMaker->VERSION >= 6.11) ?
-    (NO_META      => 1) : (),
-
-    dist => {
-        PREOP => 'pod2text lib/AxKit/XSP/Currency.pm > $(DISTVNAME)/README',
-    },
-    clean => { FILES => 'smoke-report-* t/TEST t/SMOKE t/logs' }
-);
+auto_install;
+WriteAll;
